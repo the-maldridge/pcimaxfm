@@ -1,0 +1,29 @@
+This package aims to provide linux support for the PCIMAX 2007+ radio transmitter.
+
+To install this software, execute the following commands.
+
+Build Environment and Dependencies
+----------------------------------
+sudo apt-get install build-essential autoconf automake
+sudo apt-get install linux-headers-$(uname -r)
+
+Compiling
+---------
+./autogen.sh
+./configure
+make
+
+Installing
+----------
+sudo make install
+sudo insmod src/driver/linux/pcimaxfm.ko
+sudo depmod -a
+
+For automatic loading, add pcimaxfm to your /etc/modules file.
+
+Use
+---
+Use the pcimaxctl to control the card.  The important options are:
+ * -f --freq : Frequency in megahertz.
+ * -p --power: Power level, 0-15 (0 is off)
+ * -s 	     : Stereo, accepts 1 or 0 to turn the stereo encoder on or off
