@@ -54,7 +54,7 @@ AC_DEFUN([PCIMAXFM_CHECK_LINUX_VERSION],
 
     AC_COMPILE_IFELSE([
       AC_LANG_SOURCE(
-        [[#include "]]$KERNEL_DIR[[/include/linux/version.h"
+        [[#include "]]$KERNEL_DIR[[/include/generated/uapi/linux/version.h"
           #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,36)
           #error "Unsupported version"
           #endif
